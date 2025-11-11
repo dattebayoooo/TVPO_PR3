@@ -32,5 +32,5 @@ jobs:
      steps:
        - name: Deploy to production server
          run: |
-           cd /home/vboxuser/Desktop/TVPO/TVPO3
+           cd /home/kirill/TVPO_PR3
            git pull origin main
