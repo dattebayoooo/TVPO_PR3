@@ -32,6 +32,6 @@ jobs:
     steps:
     - name: Deploy to server
       run: |
-        cd /home/kirill/TVPO_PR3
+        cd /home/vboxuser/TVPO_PR3
         git pull origin main
 
