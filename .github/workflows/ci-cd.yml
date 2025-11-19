@@ -1,0 +1,42 @@
+name: Simple CI/CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test-and-lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.13'
+    
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+    
+    - name: Run tests
+      run: python test_calculator.py
+    
+    - name: Run pylint
+      run: pylint *.py
+
+  deploy:
+    needs: test-and-lint
+    runs-on: self-hosted
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Deploy to server
+      run: |
+        echo "Деплой на сервер..."
+        cd /home/$(whoami)/project
+        git pull origin main
+        echo "Приложение обновлено!"
