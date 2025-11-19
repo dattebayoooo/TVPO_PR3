@@ -30,8 +30,19 @@ jobs:
     needs: test-and-lint
     runs-on: self-hosted
     steps:
-    - name: Deploy to server
-      run: |
-        cd /home/kirill/TVPO_PR3
-        git pull origin main
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          path: /home/kirill/TVPO_PR3
+      
+      - name: Final message
+        run: echo "✅ CI/CD завершен! Код на сервере"
+  # deploy:
+  #   needs: test-and-lint
+  #   runs-on: self-hosted
+  #   steps:
+  #   - name: Deploy to server
+  #     run: |
+  #       cd /home/kirill/TVPO_PR3
+  #       git pull origin main
 
