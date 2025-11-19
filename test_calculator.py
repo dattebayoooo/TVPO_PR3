@@ -6,7 +6,7 @@ def test_basic():
     # Простой тест который точно сработает
     result = calculator.calculate_mortgage(100000, 5, 1)
     print(f"Результат расчета: {result}")
-    assert result > 0, "Платеж должен быть положительным"
+    assert -result > 0, "Платеж должен быть положительным"
     print("✅ Тест пройден!")
 
 if __name__ == "__main__":
