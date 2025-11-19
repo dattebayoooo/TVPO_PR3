@@ -4,7 +4,7 @@ import calculator
 def test_basic():
     """Базовый тест"""
     # Простой тест который точно сработает
-    result = calculator.calculate_mortgage(100000, 5, 1)
+    result = calculator.calculate_mortgage(1000000, 5, 1)
     print(f"Результат расчета: {result}")
     assert result > 0, "Платеж должен быть положительным"
     print("✅ Тест пройден!")
